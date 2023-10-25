@@ -4,7 +4,7 @@ import { Inter } from "next/font/google"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export default function Home() {
+export default function Home({ challenges }) {
   return (
     <>
       <Head>
@@ -14,8 +14,36 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Hello BOB!</h1>
+        <article>
+          {challenges.map((challenge) => {
+            return <h3>{challenge.title}</h3>
+          })}
+        </article>
       </main>
     </>
   )
+}
+
+export async function getStaticSidePaths() {
+  const response = await fetch("http://localhost:3000/api/challenges")
+  const data = await response.json()
+  const paths = data.map((challenge) => {
+    return {
+      params: { title: challenge.title },
+    }
+  })
+  return {
+    paths,
+    fallback: true,
+  }
+}
+
+export async function getStaticProps() {
+  const response = await fetch("http://localhost:3000/api/challenges")
+  const data = await response.json()
+  return {
+    props: {
+      challenges: data,
+    },
+  }
 }
