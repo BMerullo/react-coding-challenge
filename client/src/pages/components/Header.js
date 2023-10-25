@@ -2,9 +2,9 @@ import React from "react"
 
 const Header = () => {
   return (
-    <Header>
+    <header>
       <h1>REACT CODING CHALLENGE</h1>
-    </Header>
+    </header>
   )
 }
 
