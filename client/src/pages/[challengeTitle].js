@@ -1,7 +1,11 @@
 import React from "react"
+import { useRouter } from "next/router"
 
 const Challenge = () => {
-  return <h1>This is the challenge {challengeTitle}</h1>
+  const router = useRouter()
+  const slug = router.query.challengeTitle
+
+  return <h1>This is the challenge {slug}</h1>
 }
 
 export default Challenge

@@ -2,6 +2,8 @@ import Head from "next/head"
 import Image from "next/image"
 import { Inter } from "next/font/google"
 
+import slugify from "slugify"
+
 const inter = Inter({ subsets: ["latin"] })
 
 export default function Home({ challenges }) {
@@ -16,7 +18,13 @@ export default function Home({ challenges }) {
       <main>
         <article>
           {challenges.map((challenge) => {
-            return <h3>{challenge.title}</h3>
+            const link = slugify(`${challenge.title}`, {
+              lower: true,
+              trim: true,
+            })
+            return (
+              <a href={`http://localhost:3000/${link}`}>{challenge.title}</a>
+            )
           })}
         </article>
       </main>
