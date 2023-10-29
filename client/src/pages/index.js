@@ -1,8 +1,14 @@
 import Head from "next/head"
-import Image from "next/image"
+// import Image from "next/image"
 import { Inter } from "next/font/google"
+import styles from "../styles/HomePage.module.css"
+import {
+  capitalizeWords,
+  spacesToCamelCase,
+  toCamelCase,
+} from "../../utils/unslugify"
 
-import slugify from "slugify"
+// import slugify from "slugify"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -15,19 +21,20 @@ export default function Home({ challenges }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <article>
+      <index>
+        <section className={styles.challengeCont}>
           {challenges.map((challenge) => {
-            const link = slugify(`${challenge.title}`, {
-              lower: true,
-              trim: true,
-            })
+            const string = `${challenge.title}`
+            const capitalString = capitalizeWords(string)
+            const link = spacesToCamelCase(capitalString)
             return (
-              <a href={`http://localhost:3000/${link}`}>{challenge.title}</a>
+              <article className={styles.challenge} key={challenge.id}>
+                <a href={`http://localhost:3000/${link}`}>{challenge.title}</a>
+              </article>
             )
           })}
-        </article>
-      </main>
+        </section>
+      </index>
     </>
   )
 }

@@ -1,0 +1,9 @@
+.challengeCont {
+  display: flex;
+  width: 100vw;
+}
+
+.challenge {
+  border: 2px solid black;
+  padding: 20px 10px 20px 10px;
+}
