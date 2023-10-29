@@ -1,10 +1,17 @@
-import React from "react"
+import styles from "../src/styles/Footer.module.css"
 
 const Footer = () => {
+  const year = new Date().getFullYear()
   return (
-    <>
-      <h1>This is the FOOTER</h1>
-    </>
+    <footer className={styles.footer}>
+      <section className={styles.footerContent}>
+        <article className={styles.published}>
+          <p>
+            <span>©{year} </span>Bob Merullo
+          </p>
+        </article>
+      </section>
+    </footer>
   )
 }
 

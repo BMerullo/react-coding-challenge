@@ -2,11 +2,7 @@ import Head from "next/head"
 // import Image from "next/image"
 import { Inter } from "next/font/google"
 import styles from "../styles/HomePage.module.css"
-import {
-  capitalizeWords,
-  spacesToCamelCase,
-  toCamelCase,
-} from "../../utils/unslugify"
+import { capitalizeWords, spacesToCamelCase } from "../../utils/unslugify"
 
 // import slugify from "slugify"
 
@@ -21,20 +17,26 @@ export default function Home({ challenges }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <index>
+      <main>
         <section className={styles.challengeCont}>
           {challenges.map((challenge) => {
             const string = `${challenge.title}`
             const capitalString = capitalizeWords(string)
             const link = spacesToCamelCase(capitalString)
             return (
-              <article className={styles.challenge} key={challenge.id}>
-                <a href={`http://localhost:3000/${link}`}>{challenge.title}</a>
-              </article>
+              <a
+                key={challenge.id}
+                className={styles.linkText}
+                href={`http://localhost:3000/${link}`}
+              >
+                <article className={styles.challenge}>
+                  <h3 className={styles.linkText}>{challenge.title}</h3>
+                </article>
+              </a>
             )
           })}
         </section>
-      </index>
+      </main>
     </>
   )
 }

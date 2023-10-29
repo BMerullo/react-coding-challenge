@@ -1,4 +1,7 @@
-main {
+body {
   margin: 0px 100px 0px 100px;
-  width: 100vw;
+}
+
+main {
+  min-height: 100vh;
 }

@@ -3,7 +3,7 @@ import React from "react"
 const Header = () => {
   return (
     <header>
-      <h1>REACT CODING CHALLENGE</h1>
+      <h2>React Coding Challenges</h2>
     </header>
   )
 }
