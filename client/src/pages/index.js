@@ -31,21 +31,7 @@ export default function Home({ challenges }) {
   )
 }
 
-export async function getStaticSidePaths() {
-  const response = await fetch("http://localhost:3000/api/challenges")
-  const data = await response.json()
-  const paths = data.map((challenge) => {
-    return {
-      params: { title: challenge.title },
-    }
-  })
-  return {
-    paths,
-    fallback: true,
-  }
-}
-
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const response = await fetch("http://localhost:3000/api/challenges")
   const data = await response.json()
   return {

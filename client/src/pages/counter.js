@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
-import styles from "../counter/Counter.module.css"
+import styles from "../styles/Counter.module.css"
 
-const index = () => {
+const Counter = () => {
   const [counter, setCounter] = useState(0)
   const [input, setInput] = useState(1)
 
@@ -55,4 +55,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Counter
