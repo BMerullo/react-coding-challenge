@@ -3,7 +3,9 @@ import React from "react"
 const Header = () => {
   return (
     <header>
-      <h2>React Coding Challenges</h2>
+      <a className="link" href="http://localhost:3000/">
+        <h1>React Coding Challenges</h1>
+      </a>
     </header>
   )
 }
